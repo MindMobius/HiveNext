@@ -1,30 +1,31 @@
+中文 [English](README.md)
+
 # Hive Next  
-**A Next-Generation Platform for Collaborative Creation and Resource Sharing**  
+**一个用于协作创造和资源共享的新一代平台**  
 
-## What is Hive Next?  
-Inspired by the hive, Hive Next is a virtual, community-driven platform where creators, supporters, and tinkerers unite to turn ideas into reality. We’re reimagining crowdfunding and collaboration—making it transparent, equal, and dynamic. Whether you're a student, a young professional, or a curious mind, Hive Next empowers you to build, share, and grow together.
+## Hive Next 是什么？  
+受蜂巢启发，Hive Next 是一个虚拟的、社区驱动的平台，在这里创作者、支持者和探索者共同将想法变为现实。我们正在重新构想众筹和协作——使其透明、平等且充满活力。无论你是学生、年轻专业人士还是充满好奇心的思考者，Hive Next 都能赋予你共同构建、分享和成长的能力。
 
-## Our Vision  
-- **Equal Collaboration**: Like bees in a hive, every contribution matters—big or small.  
-- **Transparent Value**: Track resources and results in real-time with our innovative flow system.  
-- **Modern Innovation**: A space for next-gen projects, from tech experiments to creative ventures.  
+## 我们的愿景  
+- **平等协作**：就像蜂巢中的蜜蜂，每一份贡献都很重要——无论大小。  
+- **透明价值**：通过我们创新的流动系统实时跟踪资源和成果。  
+- **现代创新**：为下一代项目提供空间，从技术实验到创意冒险。  
 
-## What We Do  
-- **Project Incubation**: Launch and deploy ideas with community support—hardware, code, or services.  
-- **Resource Sharing**: Crowdfund costs fairly and see how every penny creates value.  
-- **Knowledge Hub**: Access tutorials, videos, and docs crafted by the community, for the community.  
+## 我们做什么  
+- **项目孵化**：在社区支持下启动和部署想法——硬件、代码或服务。  
+- **资源共享**：公平众筹成本，并了解每一分钱如何创造价值。  
+- **知识中心**：获取由社区创建、为社区服务的教程、视频和文档。  
 
-## How It Works  
-1. **Start or Support**: Propose a project or back one you love.  
-2. **Track Value**: Watch funds flow and projects bloom through our live dashboard.  
-3. **Share Rewards**: Get code, docs, or early access as a contributor.  
+## 运作方式  
+1. **启动或支持**：提出一个项目或支持你喜爱的项目。  
+2. **跟踪价值**：通过我们的实时仪表板观察资金流动和项目发展。  
+3. **分享回报**：作为贡献者获取代码、文档或早期访问权。  
 
-## Get Involved  
-- **Explore**: Check out active projects and their progress.  
-- **Contribute**: Share skills, resources, or ideas—every bit helps the hive thrive.  
-- **Join Us**: Follow our updates and jump in!  
+## 如何参与  
+- **探索**：查看活跃项目及其进展。  
+- **贡献**：分享技能、资源或想法——每一点都有助于蜂巢的繁荣。  
+- **加入我们**：关注我们的更新并参与进来！  
 
-## Why Hive Next?  
-No gatekeepers, no silos—just a vibrant, virtual hive where creativity meets opportunity. Let’s build the future, one project at a time.
+## 为什么选择 Hive Next？  
+没有看门人，没有孤岛——只有一个充满活力的虚拟蜂巢，创造力与机遇在此相遇。让我们一个项目一个项目地构建未来。
 
-**Hive Next - Where Collaboration Fuels the Next Generation.**  
