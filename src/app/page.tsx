@@ -7,10 +7,16 @@ import {
   ProjectOutlined, 
   TeamOutlined, 
   UserOutlined,
-  RocketOutlined
+  RocketOutlined,
+  NodeIndexOutlined,
+  DatabaseOutlined
 } from '@ant-design/icons';
 import AppFooter from '../components/AppFooter';
 import MenuSelector from '../components/MenuSelector';
+import ActiveBoard from '../components/ActiveBoard';
+import ValueFlow from '../components/ValueFlow';
+import Repository from '../components/Repository';
+import type { Project } from '@/services/projectService';
 
 const { Header, Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -18,6 +24,8 @@ const { Title, Paragraph } = Typography;
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const [activeMenuKey, setActiveMenuKey] = useState('1');
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
 
   // 检测屏幕尺寸变化
   useEffect(() => {
@@ -33,63 +41,62 @@ export default function Home() {
     };
   }, []);
 
-  // 模拟众筹项目数据
-  const projects = [
-    {
-      id: 1,
-      title: '项目一',
-      description: '这是一个创新型众筹项目，旨在解决...',
-      target: 100000,
-      current: 65000,
-      backers: 120,
-      daysLeft: 15,
-    },
-    {
-      id: 2,
-      title: '项目二',
-      description: '社区驱动的开源项目，专注于...',
-      target: 50000,
-      current: 35000,
-      backers: 85,
-      daysLeft: 20,
-    },
-    {
-      id: 3,
-      title: '项目三',
-      description: '致力于环保的创新解决方案...',
-      target: 200000,
-      current: 120000,
-      backers: 230,
-      daysLeft: 10,
-    },
-  ];
+  useEffect(() => {
+    fetchProjects();
+  }, []);
+
+  const fetchProjects = async () => {
+    try {
+      const response = await fetch('/api/projects');
+      const data = await response.json();
+      console.log('Fetched projects:', data);
+      setProjects(data);
+    } catch (error) {
+      console.error('Error fetching projects:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const menuItems = [
     {
-      key: '1',
-      icon: <HomeOutlined />,
-      label: '首页'
-    },
-    {
-      key: '2',
+      key: 'activeboard',
       icon: <ProjectOutlined />,
-      label: '众筹项目'
+      label: 'ActiveBoard'
     },
     {
-      key: '3',
-      icon: <RocketOutlined />,
-      label: '价值转化'
+      key: 'valueflow',
+      icon: <NodeIndexOutlined />,
+      label: 'ValueFlow'
     },
     {
-      key: '4',
-      icon: <TeamOutlined />,
-      label: '社区'
+      key: 'repository',
+      icon: <DatabaseOutlined />,
+      label: 'Repository'
     }
   ];
 
   const handleMenuSelect = (key: string) => {
     setActiveMenuKey(key);
     // 这里可以添加页面切换逻辑
+  };
+
+  // 在Content中根据activeMenuKey渲染不同内容
+  const renderContent = () => {
+    if (loading) {
+      return <div>Loading...</div>;
+    }
+
+    switch (activeMenuKey) {
+      case 'activeboard':
+        return <ActiveBoard projects={projects.filter(p => p.status === 'active')} />;
+      case 'valueflow':
+        return <ValueFlow projects={projects.filter(p => p.status === 'active')} />;
+      case 'repository':
+        return <Repository projects={projects.filter(p => p.status === 'pending')} />;
+      default:
+        return <ActiveBoard projects={projects.filter(p => p.status === 'active')} />;
+    }
   };
 
   return (
@@ -135,44 +142,7 @@ export default function Home() {
         
         <Content style={{ margin: '16px' }}>
           <div style={{ padding: 24, minHeight: 360, background: '#fff' }}>
-            <Title level={2}>众筹项目</Title>
-            <Paragraph>
-              发现并支持创新项目，共同推动MindMobius(曼比乌斯)生态发展。
-            </Paragraph>
-            
-            <Row gutter={[16, 16]}>
-              {projects.map(project => (
-                <Col xs={24} sm={12} md={8} key={project.id}>
-                  <Card 
-                    hoverable 
-                    title={project.title}
-                    extra={<Button type="primary">支持</Button>}
-                  >
-                    <Paragraph ellipsis={{ rows: 2 }}>{project.description}</Paragraph>
-                    <Progress 
-                      percent={Math.round((project.current / project.target) * 100)} 
-                      status="active" 
-                    />
-                    <Row gutter={16}>
-                      <Col span={8}>
-                        <Statistic 
-                          title="已筹" 
-                          value={project.current} 
-                          suffix={`/${project.target}`} 
-                          precision={0} 
-                        />
-                      </Col>
-                      <Col span={8}>
-                        <Statistic title="支持者" value={project.backers} />
-                      </Col>
-                      <Col span={8}>
-                        <Statistic title="剩余天数" value={project.daysLeft} />
-                      </Col>
-                    </Row>
-                  </Card>
-                </Col>
-              ))}
-            </Row>
+            {renderContent()}
           </div>
         </Content>
         

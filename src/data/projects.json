@@ -1,0 +1,46 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "HiveNext 蜂枢",
+      "description": "核心项目，为该项目提供网页和数据服务",
+      "level": 3,
+      "idea": 50,
+      "cost": 5,
+      "sponsorship": 20,
+      "workHours": 1,
+      "heat": 10,
+      "dailyActive": 1,
+      "status": "active",
+      "createdAt": "2025-02-22"
+    },
+    {
+      "id": 2,
+      "title": "ValueFlow",
+      "description": "社区驱动的开源项目，专注于价值流动可视化",
+      "level": 2,
+      "idea": 10,
+      "cost": 0,
+      "sponsorship": 0,
+      "workHours": 0,
+      "heat": 0,
+      "dailyActive": 0,
+      "status": "active",
+      "createdAt": "2025-02-16"
+    },
+    {
+      "id": 3,
+      "title": "Repository",
+      "description": "项目仓库管理系统",
+      "level": 1,
+      "idea": 30,
+      "cost": 20,
+      "sponsorship": 50,
+      "workHours": 10,
+      "heat": 40,
+      "dailyActive": 15,
+      "status": "pending",
+      "createdAt": "2025-01-26"
+    }
+  ]
+} 
