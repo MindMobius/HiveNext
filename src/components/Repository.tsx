@@ -39,11 +39,13 @@ const Repository: React.FC<{ projects: Project[] }> = ({ projects }) => {
       dataIndex: 'title',
       key: 'title',
       render: (text, record) => (
-        <div>
+        <div style={{ wordBreak: 'break-word' }}>
           <div style={{ marginBottom: 8 }}>
-            <span style={{ fontSize: '16px', fontWeight: 500 }}>{text}</span>
-            <Tag color="blue" style={{ marginLeft: 8 }}>L{record.level}</Tag>
-            <Tag color="orange">未启动</Tag>
+            <span style={{ fontSize: '16px', fontWeight: 500, display: 'inline-block', marginBottom: 4 }}>{text}</span>
+            <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap', marginTop: 4 }}>
+              <Tag color="blue">L{record.level}</Tag>
+              <Tag color="orange">未启动</Tag>
+            </div>
           </div>
           <Paragraph 
             type="secondary" 
@@ -57,7 +59,7 @@ const Repository: React.FC<{ projects: Project[] }> = ({ projects }) => {
           </div>
         </div>
       ),
-      width: '40%',
+      width: '100%',
     },
     {
       title: '创建时间',
@@ -89,7 +91,7 @@ const Repository: React.FC<{ projects: Project[] }> = ({ projects }) => {
       title: '操作',
       key: 'action',
       render: (_, record) => (
-        <Space>
+        <Space wrap>
           <Button 
             type="primary" 
             icon={<BulbOutlined />}
@@ -106,7 +108,7 @@ const Repository: React.FC<{ projects: Project[] }> = ({ projects }) => {
           </Button>
         </Space>
       ),
-      width: '20%',
+      width: '100%',
     },
   ];
 
@@ -121,6 +123,8 @@ const Repository: React.FC<{ projects: Project[] }> = ({ projects }) => {
         dataSource={projects}
         rowKey="id"
         pagination={{ pageSize: 10 }}
+        scroll={{ x: 'max-content' }}
+        style={{ overflowX: 'auto' }}
       />
     </div>
   );
